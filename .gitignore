@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# netbeans
+nbproject/
+
+# data files
+*.json
