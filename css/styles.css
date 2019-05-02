@@ -1,0 +1,244 @@
+body {
+	background-color: #003;
+	color: white;
+}
+.clear {
+	clear: both;
+}
+.hidden {
+    display: none;
+}
+#header {
+	width: 90%;
+	max-width: 1280px;
+	margin: 0 auto;
+	height: 300px;
+	
+	background-color: #99f;
+	
+	position: relative;
+}
+
+#container {
+	position:relative;
+	margin: 20px auto;
+	padding: 20px 0 10px;
+	width: 90%;
+	max-width: 1280px;
+	background-color: #99f;
+}
+
+.page-content {
+	position: relative;
+	max-width: 1242px;
+	position: relative;
+	margin: 20px auto;
+	min-height: 300px;
+	background-color: #669;
+}
+#header .page-content {
+	position: absolute;
+	min-height: auto;
+	margin: 0;
+	top: 20px;
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+}
+
+.cell-outter {
+	width: 20%;
+	min-height: 220px;
+	float: left;
+	position: relative;
+	
+}
+.cell-outter:nth-child(5n+1) {
+    clear:both;
+}
+.cell {
+	position: relative;
+	margin: 5px;
+	padding: 10px 0 5px;
+	background-color: #336;
+	
+	text-align: center;
+}
+
+.cell img.tile {
+	width: 100%;
+	max-width: 184px;
+	height: auto;
+	padding: 0;
+	margin: 0;
+}
+.cell div.tile {
+	margin-bottom: 5px;
+}
+.cell .store {
+	width: 80%;
+	margin: 5px auto;
+	color: #f9f9f9;
+	background-color: #669;
+	padding: 5px;
+}
+
+.cell section {
+	margin-bottom: 5px;
+	position: relative;
+}
+
+.cell section.tags div {
+	position: relative;
+	margin: 5px;
+}
+.cell section.tags ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.cell section.tags li {
+	float: left;
+	margin: 1px;
+	padding: 5px;
+	background-color: #669;
+}
+.cell section.tags a {
+	color: white;
+	text-decoration: none;
+	padding: 0px;
+	background-color: #669;
+}
+.features {
+	background-color: grey;
+	height: 106px;
+	position: relative;
+	width: 177px;
+	margin: 10px auto 5px;
+}
+.category {
+	width: 33px;
+	height: 24px;
+	position: absolute;
+}
+
+/*
+Captions Available, Steam Workshop, VAC, Steam Achievements, Steam Cloud, Level Editor, Steam Leaderboards, Mods (HL1 Required), Mods (HL2 Required), VR Support.
+
+Single Player, Multiplayer, Cross-Platform Multiplayer, Online Co-Op, Local Co-Op, Full Controller Support, Commentary Available, Includes Source SDK, Steam Trading Cards, Stats.
+*/
+
+
+.single-player {
+	background: url('../images/feature.png') -2px -73px;
+	top: 2px;
+	left: 2px;
+}
+.multiplayer {
+	background: url('../images/feature.png') -46px -73px;
+	top: 2px;
+	left: 37px;
+}
+.cross-platform-multiplayer {
+	background: url('../images/feature.png') -91px -73px;
+	top: 2px;
+	left: 72px;
+}
+.online-coop {
+	background: url('../images/feature.png') -136px -73px;
+	top: 2px;
+	left: 107px;
+}
+.local-coop {
+	background: url('../images/feature.png') -181px -73px;
+	top: 2px;
+	left: 142px;
+}
+
+.partial-controller-support {
+	background: url('../images/feature.png') -2px -2px;
+	left: 2px;
+	top: 28px;
+}
+.full-controller-support {
+	background: url('../images/feature.png') -226px -73px;
+	left: 2px;
+	top: 28px;
+}
+.vr-support {
+	background: url('../images/feature.png') -406px -37px;
+	top: 28px;
+	left: 37px;
+}
+.captions-available {
+	background: url('../images/feature.png') -2px -37px;
+	left: 72px;
+	top: 28px;
+}
+.steam-workshop {
+	background: url('../images/feature.png') -46px -37px;
+	left: 107px;
+	top: 28px;
+}
+.achievements {
+	background: url('../images/feature.png') -136px -37px;
+	left: 142px;
+	top: 28px;
+}
+
+
+.steam-cloud {
+	background: url('../images/feature.png') -181px -37px;
+	left: 2px;
+	top: 54px;
+}
+.level-editor {
+	background: url('../images/feature.png') -226px -37px;
+	left: 37px;
+	top: 54px;
+}
+.steam-leaderboards {
+	background: url('../images/feature.png') -271px -37px;
+	left: 72px;
+	top: 54px;
+}
+.mods-hl1 {
+	background: url('../images/feature.png') -316px -37px;
+	left: 107px;
+	top: 54px;
+}
+.mods-hl2 {
+	background: url('../images/feature.png') -361px -37px;
+	left: 142px;
+	top: 54px;
+}
+
+
+
+
+
+.vac {
+	background: url('../images/feature.png') -91px -37px;
+	left: 2px;
+	top: 80px;
+}
+.commentary-available {
+	background: url('../images/feature.png') -271px -73px;
+	top: 80px;
+	left: 37px;
+}
+.source-sdk {
+	background: url('../images/feature.png') -316px -73px;
+	top: 80px;
+	left: 72px;
+}
+.trading-cards {
+	background: url('../images/feature.png') -361px -73px;
+	top: 80px;
+	left: 107px;
+}
+.stats {
+	background: url('../images/feature.png') -406px -73px;
+	top: 80px;
+	left: 142px;
+}

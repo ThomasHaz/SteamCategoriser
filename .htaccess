@@ -1,0 +1,18 @@
+RewriteEngine On    # Turn on the rewriting engine
+
+RewriteRule ^api/steam/get/user/id/([a-zA-Z0-9_-]*)/?$ api/steam/api.php?vanityurl=$1 [NC,L]
+RewriteRule ^api/steam/get/user/id/([a-zA-Z0-9_-]*)/0/?$ api/steam/api.php?vanityurl=$1&output=0 [NC,L]
+
+RewriteRule ^api/steam/get/user/([0-9]*)/gamelist/?$ api/steam/api.php?gamelist=$1 [NC,L]
+RewriteRule ^api/steam/get/user/([0-9]*)/gamelist/0/?$ api/steam/api.php?gamelist=$1&output=0 [NC,L]
+
+RewriteRule ^api/steam/get/user/([0-9]*)/gamelist/detailed/?$ api/steam/api.php?gamelist=$1&detailed=1 [NC,L]
+RewriteRule ^api/steam/get/user/([0-9]*)/gamelist/detailed/0/?$ api/steam/api.php?gamelist=$1&detailed=1&output=0 [NC,L]
+
+RewriteRule ^api/steam/del/user/([0-9]*)/gamelist/?$ api/steam/api.php?delgamelist=$1 [NC,L]
+RewriteRule ^api/steam/del/user/([0-9]*)/gamelist/0/?$ api/steam/api.php?delgamelist=$1&output=0 [NC,L]
+
+RewriteRule ^api/steam/get/game/([0-9]*)/?$ api/steam/api.php?game=$1 [NC,L]
+RewriteRule ^api/steam/get/game/([0-9]*)/0/?$ api/steam/api.php?game=$1&output=0 [NC,L]
+
+RewriteRule ^([a-zA-Z0-9_-]*)/?$ index.php?vanityurl=$1 [NC,L]
