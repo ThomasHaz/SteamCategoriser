@@ -4,5 +4,4 @@
 # netbeans
 nbproject/
 
-# data files
-*.json
+*key.php
