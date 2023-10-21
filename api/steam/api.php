@@ -17,6 +17,9 @@ function formatGame($game) {
         $output .= " ({$game['game']['age_rating']})";
     }
     $output .= '</section>';
+    $output .= '<section class="steam-id">';
+    $output .= "ID: " . $game['game']['id'];
+    $output .= '</section>';
     $output .= '<section class="store">';
     $output .= "<a href=\"{$game['game']['url']}\" class=\"store\" target=\"_blank\">View in Store</a>";
     $output .= '</section>';
@@ -46,6 +49,12 @@ function formatGame($game) {
   <div class="clear"></div>
   </div>
   </section>';
+  $output .= '<section class="crossover">CrossOver:<br>';
+  $output .= 'URL:'.$game['game']['crossover']['url'].'<br>';
+  $output .= ($game['game']['crossover']['valid'] ? "Found" : "Not Found") . "<br>";
+  $output .= $game['game']['crossover']['compatibility'];
+  $output .= $game['game']['crossover']['breakdown'];
+  $output .= '</section>';
     $output .= '</div>
   </div>';
 
@@ -200,7 +209,6 @@ class APIGets {
             $this->outputs["gamelist"] = file_get_contents($filename);
             //$this->create_json(1, file_get_contents($filename));
         }
-        
         return file_get_contents($filename);
     }
 
@@ -350,7 +358,8 @@ class APIGets {
                         "updated" => $game->getRatingsUpdated()],
                     "age_rating" => (int) $game->getAge(),
                     "release_date" => $game->getReleaseDate(),
-                    "url" => $game->getAppURL()
+                    "url" => $game->getAppURL(),
+                    "crossover" => $game->crossover
                 ]
             ];
             file_put_contents($this->get_game_path($appid), json_encode($game_arr));

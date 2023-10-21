@@ -9,7 +9,7 @@ if (strlen($vanityform)) {
     <head>
         <meta charset="utf-8" />
         <title>Steam Categories</title>
-
+        <script src="https://kit.fontawesome.com/adfe83f4b3.js" crossorigin="anonymous"></script>
         <link type="text/css" href="css/styles.css" rel="stylesheet">
 
         <?php

@@ -165,4 +165,68 @@ class SteamStoreScrape {
 	
 }
 
+class XOverScrape {
+	private $name;
+    private $payload;
+    private $ratings = [];
+	private $breakdown = [];
+	private $xover_available;
+	
+	function getUrlContent($url){
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+		$data = curl_exec($ch);
+		$endpage = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+		$match;
+		preg_match("/http[s]?:\/\/?[^\/\s]+\/?(.*)/", $endpage, $match);
+		$accessible = strlen($match[1]) > 0;
+		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		curl_close($ch);
+		return (($httpcode>=200 && $httpcode<300) && $accessible) ? $data : false;
+	}
+	
+	public function __construct($name) {
+
+		$this->name = str_replace([" ", ":","'","!","?", "\\u00ae", "\\u2122", "®", "™"], ["-","","","","","","", "", ""], $name);
+		$this->payload = $this->getUrlContent("https://www.codeweavers.com/compatibility/crossover/".$this->name);
+		if($this->payload) {
+			preg_match("/<ul class=\"star-rating-table\">(.*)/", $this->payload, $this->ratings);
+			preg_match("/<div id=\"breakdown\" class=\"container-fluid steelwall border-top border-bottom border-dark\">(.*)<div id=\"advocates\"/s", $this->payload, $this->breakdown);
+			$this->xover_available = count($this->ratings) > 0;
+		}
+	}
+	
+	public function getOverallRating() {
+        //var_dump($this->ratings);
+		if(count($this->ratings) > 0) {
+			return $this->ratings[0];
+		} else {
+			return " ";
+		}
+	}
+
+	public function getOverallBreakdown() {
+        //var_dump($this->ratings);
+		if(count($this->breakdown) > 1) {
+			return $this->breakdown[1];
+		} else {
+			return " ";
+		}
+	}
+
+	public function getXOverURL(){ 
+		return '<a href="https://www.codeweavers.com/compatibility/crossover/'.$this->name.'">'.$this->name."</a>";
+	}
+
+	public function getXOverAvailable() {
+		return $this->xover_available;
+	}
+	
+}
+
 ?>

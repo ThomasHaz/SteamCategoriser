@@ -2,6 +2,9 @@ body {
 	background-color: #003;
 	color: white;
 }
+a {
+	color: lightgray;
+}
 .clear {
 	clear: both;
 }
@@ -241,4 +244,23 @@ Single Player, Multiplayer, Cross-Platform Multiplayer, Online Co-Op, Local Co-O
 	background: url('../images/feature.png') -406px -73px;
 	top: 80px;
 	left: 142px;
+}
+
+ul.star-rating-table {
+    display: inline-block;
+    list-style-type: none;
+    color: #DDD;
+    margin: 0; padding: 0;
+    white-space: nowrap;
+}
+ul.star-rating-table li {
+    display: inline-block;
+    margin: 0 0.15em 0 0;
+    padding: 0;
+}
+ul.star-rating-table li.active {
+  color: #FFCC33;
+}
+section.crossover {
+	min-height: 60px;
 }

@@ -19,6 +19,7 @@ class Game {
     private $in_store = true;
     private $store_available = true;
     private $app_type = "";
+    public $crossover = [];
 
     function parseHeaders($headers) {
         $head = array();
@@ -99,6 +100,7 @@ class Game {
                 $this->_is_valid = false;
             }
         }
+        $this->crossover = $this->getXOver();
     }
     
     public function is_valid() {
@@ -114,6 +116,14 @@ class Game {
         }
     }
 
+    function getXOver() {
+        $xover = new XOverScrape($this->getName());
+    return ["url" => $xover->getXOverURL(),
+            "valid" => $xover->getXOverAvailable(),
+            "compatibility" => $xover->getOverallRating(),
+            "breakdown" => $xover->getOverallBreakdown()];
+
+    }
     function getTags() {
         return $this->tags;
     }
